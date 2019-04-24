@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css"
+
+// function App() {
+//   let value = 0
+
+//   const reduceValue = () => {
+//     return value - 1
+//   }
+
+//   return (
+//     <div className="App">
+//       <span>{value}</span>
+
+//       <div>
+//         <button onClick="reduceValue()">-</button>
+//         <button onClick="addValue()">+</button>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      counter: 0
+    }
+  }
+
+  reduceValue = () => {
+    this.setState({
+      counter: this.state.counter - 1
+    })
+  }
+
+  addValue = () => {
+    this.setState({
+      counter: this.state.counter + 1
+    })
+  }
+
+  //================================
+  render() {
+    return (
+      <div className="App">
+        <span>{this.state.counter}</span>
+
+        <div>
+          <button onClick={this.reduceValue}>-</button>
+          <button onClick={this.addValue}>+</button>
+        </div>
+
+        <p>CSSnya nanti dulu ya hehehehe</p>
+      </div>
+    )
+  }
 }
-
-export default App;
